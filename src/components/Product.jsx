@@ -9,7 +9,76 @@ const products = [
     price: "$35",
     color: "Black and White",
   },
-  // More products...
+  {
+    id: 2,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 3,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 4,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 5,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 6,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 7,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
+  {
+    id: 8,
+    name: "Gaming Headset",
+    href: "#",
+    imageSrc:
+      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+    imageAlt: "preview of the gaming headset.",
+    price: "$35",
+    color: "Black and White",
+  },
 ];
 
 export const Product = () => {
@@ -22,7 +91,9 @@ export const Product = () => {
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
+            <div
+              key={product.id}
+              className="group relative border-2 hover:border-blue-800 p-2">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
                   src={product.imageSrc}
@@ -40,9 +111,11 @@ export const Product = () => {
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}
-                </p>
+                <div className="flex gap-1 flex-col">
+                  <p className="text-sm font-medium text-gray-900">
+                    {product.price}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
