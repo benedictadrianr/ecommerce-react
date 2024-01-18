@@ -1,40 +1,55 @@
 import mushroom from "../img/mushroom.png";
 import cart from "../img/shopping-cart.png";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   return (
-    <nav className="w-screen flex justify-center">
-      <div className="w-5/6 flex flex-row justify-between p-5 text-lg text-gray-600 align-middle border-b-2 border-gray-300">
+    <nav className="w-screen flex justify-center sticky top-0 bg-white/75 z-50 backdrop-blur">
+      <div className="w-full xl:w-5/6 p-5 text-md text-gray-600">
         <button
           id="mobile-open-button"
-          className="text-3xl md:hidden focus:outline-none">
+          className="text-3xl lg:hidden focus:outline-none">
           &#9776;
         </button>
-        <div className="flex-row w-1/2 hidden md:flex space-x-8 text-sm lg:text-lg">
-          <a className="w-10">
+        <div className="flex-row hidden lg:flex space-x-8 text-sm justify-evenly xl:justify-between items-center">
+          <Link className="w-10" to="/">
             <img src={mushroom} alt="mushroom" className="" />
-          </a>
-          <a href="" className="hover:text-black p-2 transition-all ease">
-            Headgear
-          </a>
-          <a href="" className="hover:text-black p-2 transition-all ease">
-            Mouse
-          </a>
-          <a href="" className="hover:text-black p-2 transition-all ease">
-            Keyboard
-          </a>
-          <a href="" className="hover:text-black p-2 transition-all ease">
-            Monitor
-          </a>
-        </div>
-        <div className="flex flex-row justify-end w-1/2 gap-4 lg:text-lg text-sm">
-          <a href="" className="hover:text-black p-2 transition-all ease">
+          </Link>
+          <Link
+            to="/headsets"
+            className="hover:text-black py-2 transition-all ease w-10 text-sm">
+            Headsets
+          </Link>
+          <Link
+            to="/keyboards"
+            className="hover:text-black py-2 transition-all ease w-10 text-sm">
+            Keyboards
+          </Link>
+          <Link
+            to="/mouses"
+            className="hover:text-black py-2 transition-all ease w-10 text-sm">
+            Mouses
+          </Link>
+          <input
+            type="text"
+            name="search"
+            id="searchbar"
+            placeholder="Search your item here..."
+            className="border-2 w-full max-w-xs lg:max-w-80 xl:max-w-md"
+          />
+          <a
+            href=""
+            className="hover:text-black text-sm py-2 transition-all ease">
             Login
           </a>
-          <a href="" className="hover:text-black p-2 transition-all ease">
+          <a
+            href=""
+            className="hover:text-black text-sm py-2 transition-all ease">
             Create Account
           </a>
-          <a className="w-8 h-8 flex justify-center align-middle">
+          <a
+            className="w-6 h-6 xl:w-8 xl:h-8 flex justify-center align-middle"
+            href="">
             <img
               src={cart}
               alt=""
@@ -45,4 +60,13 @@ export const Navigation = () => {
       </div>
     </nav>
   );
+  // function CustomLink({ to, children, ...props }) {
+  //   const path = window.location.pathname;
+
+  //   return (
+  //     <li className={path === to ? "active" : ""}>
+  //       <Link to={to}>{children}</Link>
+  //     </li>
+  //   );
+  // }
 };

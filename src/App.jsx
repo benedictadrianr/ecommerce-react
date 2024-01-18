@@ -1,17 +1,25 @@
-import { Promo } from "./components/Promo";
 import { Navigation } from "./components/Navigation";
+import { Home } from "./components/Home";
+import { Route, Routes } from "react-router-dom";
+import { Mouses } from "./components/Mouses";
+// import { Headsets } from "./components/Headsets";
+import { Keyboards } from "./components/Keyboards";
 import { Product } from "./components/Product";
 import { Footer } from "./components/Footer";
 
-function App() {
+export default function App() {
   return (
     <>
       <Navigation />
-      <Promo />
-      <Product />
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/headsets" element={<Product />} />
+          <Route path="/keyboards" element={<Keyboards />} />
+          <Route path="/mouses" element={<Mouses />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );
 }
-
-export default App;
