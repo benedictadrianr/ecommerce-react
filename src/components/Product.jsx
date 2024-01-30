@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const products = [
   {
     id: 1,
     name: "Gaming Headset",
+    type: "headphone",
     href: "#",
     imageSrc:
       "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
@@ -13,27 +15,30 @@ const products = [
   },
   {
     id: 2,
-    name: "Gaming Headset",
+    name: "Gaming Keyboard",
+    type: "keyboard",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://row.hyperx.com/cdn/shop/products/hyperx_alloy_origins_ko_1_top_down_2048x2048.jpg?v=1663982727",
+    imageAlt: "preview of the gaming keyboard.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 3,
-    name: "Gaming Headset",
+    name: "Gaming Mouse",
+    type: "mouse",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://images-cdn.ubuy.co.in/633d1ed5dc341b272b2cbd08-rgb-gaming-mouse-wired-pc-gaming-mouse.jpg",
+    imageAlt: "preview of the gaming mouse.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 4,
     name: "Gaming Headset",
+    type: "headphone",
     href: "#",
     imageSrc:
       "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
@@ -43,90 +48,99 @@ const products = [
   },
   {
     id: 5,
-    name: "Gaming Headset",
+    name: "Gaming Mouse",
+    type: "mouse",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://images-cdn.ubuy.co.in/633d1ed5dc341b272b2cbd08-rgb-gaming-mouse-wired-pc-gaming-mouse.jpg",
+    imageAlt: "preview of the gaming mouse.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 6,
-    name: "Gaming Headset",
+    name: "Gaming Keyboard",
+    type: "keyboard",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://row.hyperx.com/cdn/shop/products/hyperx_alloy_origins_ko_1_top_down_2048x2048.jpg?v=1663982727",
+    imageAlt: "preview of the gaming keyboard.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 7,
-    name: "Gaming Headset",
+    name: "Gaming Keyboard",
+    type: "keyboard",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://row.hyperx.com/cdn/shop/products/hyperx_alloy_origins_ko_1_top_down_2048x2048.jpg?v=1663982727",
+    imageAlt: "preview of the gaming keyboard.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 8,
-    name: "Gaming Headset",
+    name: "Gaming Mouse",
+    type: "mouse",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://images-cdn.ubuy.co.in/633d1ed5dc341b272b2cbd08-rgb-gaming-mouse-wired-pc-gaming-mouse.jpg",
+    imageAlt: "preview of the gaming mouse.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 9,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
   },
   {
     id: 10,
-    name: "Gaming Chair",
+    name: "Gaming Mouse",
+    type: "mouse",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://images-cdn.ubuy.co.in/633d1ed5dc341b272b2cbd08-rgb-gaming-mouse-wired-pc-gaming-mouse.jpg",
+    imageAlt: "preview of the gaming mouse.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 11,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
   },
   {
     id: 12,
-    name: "Gaming Chair",
+    name: "Gaming Keyboard",
+    type: "keyboard",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
-    imageAlt: "preview of the gaming headset.",
+      "https://row.hyperx.com/cdn/shop/products/hyperx_alloy_origins_ko_1_top_down_2048x2048.jpg?v=1663982727",
+    imageAlt: "preview of the gaming keyboard.",
     price: "$35",
-    color: "Black and White",
+    color: "RGB",
   },
   {
     id: 13,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
@@ -134,9 +148,10 @@ const products = [
   {
     id: 14,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
@@ -144,9 +159,10 @@ const products = [
   {
     id: 15,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
@@ -154,9 +170,10 @@ const products = [
   {
     id: 16,
     name: "Gaming Chair",
+    type: "chair",
     href: "#",
     imageSrc:
-      "https://media.istockphoto.com/id/93339674/vector/online-gaming-headset.jpg?s=612x612&w=0&k=20&c=Hg65VjUisQyMr5S7JPaCmD4JwKliq2_vxKAhbucejJI=",
+      "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//93/MTA-8246262/b-g_bg_sport_kursi_gaming_-_gaming_chair_model_e-02s_-_white_-_full01_rwz24yft.jpg",
     imageAlt: "preview of the gaming headset.",
     price: "$35",
     color: "Black and White",
@@ -164,9 +181,17 @@ const products = [
 ];
 
 export const Product = () => {
+  const { productType } = useParams();
   const [showAll, setShowAll] = useState(false);
 
-  const displayedItmes = showAll ? products : products.slice(0, 8);
+  const shouldFilter = productType && productType.trim() !== "";
+  const filteredItems = shouldFilter
+    ? products.filter((product) => product.type === productType)
+    : products;
+
+  const itemCount = filteredItems.length > 8;
+
+  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 8);
 
   return (
     <div className="bg-white">
@@ -176,11 +201,11 @@ export const Product = () => {
         </h2>
 
         <div className="my-6 gap-x-6 gap-y-10 xl:gap-x-8 flex flex-wrap justify-center">
-          {displayedItmes.map((product) => (
+          {displayedItems.map((product) => (
             <div
               key={product.id}
               className="group relative border-2 hover:border-blue-800 p-2">
-              <div className="w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 h-60 md:h-80">
+              <div className=" overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 h-60 md:h-80">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
@@ -208,14 +233,18 @@ export const Product = () => {
         </div>
         {!showAll && (
           <button
-            className="p-2 w-36 mx-auto shadow-md border-2 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-all"
+            className={`p-2 w-36 mx-auto shadow-md border-2 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-all ${
+              !itemCount ? "hidden" : ""
+            }`}
             onClick={() => setShowAll(true)}>
             Show All
           </button>
         )}
         {showAll && (
           <button
-            className="p-2 w-36 mx-auto shadow-md border-2 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-all"
+            className={`p-2 w-36 mx-auto shadow-md border-2 bg-gray-100 hover:bg-blue-500 hover:text-white rounded-md transition-all ${
+              !itemCount ? "hidden" : ""
+            }`}
             onClick={() => setShowAll(false)}>
             Show Less
           </button>

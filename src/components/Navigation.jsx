@@ -16,17 +16,17 @@ export const Navigation = () => {
             <img src={mushroom} alt="mushroom" className="" />
           </Link>
           <Link
-            to="/headsets"
+            to="/product/headphone"
             className="hover:text-black py-2 transition-all ease w-10 text-sm">
             Headsets
           </Link>
           <Link
-            to="/keyboards"
+            to="/product/keyboard"
             className="hover:text-black py-2 transition-all ease w-10 text-sm">
             Keyboards
           </Link>
           <Link
-            to="/mouses"
+            to="/product/mouse"
             className="hover:text-black py-2 transition-all ease w-10 text-sm">
             Mouses
           </Link>
@@ -60,13 +60,4 @@ export const Navigation = () => {
       </div>
     </nav>
   );
-  // function CustomLink({ to, children, ...props }) {
-  //   const path = window.location.pathname;
-
-  //   return (
-  //     <li className={path === to ? "active" : ""}>
-  //       <Link to={to}>{children}</Link>
-  //     </li>
-  //   );
-  // }
 };
